@@ -1,0 +1,17 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "august-bio-extension",
+    "libraryId": "c621e8f6-de83-4b9d-93c1-ecace267ba45",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "august-bio-extension",
+    "solutionShortDescription": "august-bio-extension description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ApplicationCustomizer"
+  }
+}

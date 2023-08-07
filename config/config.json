@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "august-bio-extension-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/augustBioExtension/AugustBioExtensionApplicationCustomizer.js",
+          "manifest": "./src/extensions/augustBioExtension/AugustBioExtensionApplicationCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AugustBioExtensionApplicationCustomizerStrings": "lib/extensions/augustBioExtension/loc/{locale}.js"
+  }
+}

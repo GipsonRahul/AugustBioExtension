@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://chandrudemo.sharepoint.com/sites/AugustBioServices/SitePages/Intranet.aspx",
+      "customActions": {
+        "ca40e2a9-c46e-48d8-baa6-adebbdbfcceb": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    },
+    "augustBioExtension": {
+      "pageUrl": "https://chandrudemo.sharepoint.com/sites/AugustBioServices/SitePages/Intranet.aspx",
+      "customActions": {
+        "ca40e2a9-c46e-48d8-baa6-adebbdbfcceb": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message"
+          }
+        }
+      }
+    }
+  }
+}
