@@ -38,16 +38,14 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
         );
 
         if (filteredItems.length > 0) {
-          let topPlaceholder: PlaceholderContent =
+
+
+
+          if (filteredItems[0].Header ) {
+            let topPlaceholder: PlaceholderContent =
             this.context.placeholderProvider.tryCreateContent(
               PlaceholderName.Top
             );
-          let bottomPlaceholder: PlaceholderContent =
-            this.context.placeholderProvider.tryCreateContent(
-              PlaceholderName.Bottom
-            );
-
-          if (filteredItems[0].Header && topPlaceholder) {
             document.querySelector('[class*="headerRow"]')["style"].display =
               "none";
             document.querySelector('[id="spCommandBar"]')["style"].display =
@@ -56,7 +54,11 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
             ReactDOM.render(topElem, topPlaceholder.domElement);
           }
 
-          // if (filteredItems[0].Footer && bottomPlaceholder) {
+          // if (filteredItems[0].Footer) {
+            // let bottomPlaceholder: PlaceholderContent =
+            // this.context.placeholderProvider.tryCreateContent(
+            //   PlaceholderName.Bottom
+            // );
           //   const botElem = React.createElement(ReactFooter);
           //   ReactDOM.render(botElem, bottomPlaceholder.domElement);
           // }
