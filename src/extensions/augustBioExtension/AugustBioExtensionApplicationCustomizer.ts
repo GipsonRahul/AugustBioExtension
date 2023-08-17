@@ -38,20 +38,27 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
         );
 
         if (filteredItems.length > 0) {
-
-
-
           if (filteredItems[0].Header ) {
             let topPlaceholder: PlaceholderContent =
             this.context.placeholderProvider.tryCreateContent(
               PlaceholderName.Top
             );
-            document.querySelector('[class*="headerRow"]')["style"].display =
+
+            setTimeout(() => {
+              console.log('This will run after 1 second!');
+              document.querySelector('[class*="headerRow"]')["style"].display =
               "none";
             document.querySelector('[id="spCommandBar"]')["style"].display =
               "none";
+          });
+
+            // document.querySelector('[class*="headerRow"]')["style"].display =
+            //   "none";
+            // document.querySelector('[id="spCommandBar"]')["style"].display =
+            //   "none";
             const topElem = React.createElement(ReactHeader);
             ReactDOM.render(topElem, topPlaceholder.domElement);
+
           }
 
           // if (filteredItems[0].Footer) {
