@@ -10,6 +10,7 @@ import {
 } from "@fluentui/react";
 
 import styles from "./Header.module.scss";
+import "../../External/style.css";
 
 interface IRedirectURL {
   home: string;

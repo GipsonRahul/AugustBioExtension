@@ -38,19 +38,19 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
         );
 
         if (filteredItems.length > 0) {
-          if (filteredItems[0].Header ) {
+          if (filteredItems[0].Header) {
             let topPlaceholder: PlaceholderContent =
-            this.context.placeholderProvider.tryCreateContent(
-              PlaceholderName.Top
-            );
+              this.context.placeholderProvider.tryCreateContent(
+                PlaceholderName.Top
+              );
 
             setTimeout(() => {
-              console.log('This will run after 1 second!');
+              console.log("This will run after 1 second!");
               document.querySelector('[class*="headerRow"]')["style"].display =
-              "none";
-            document.querySelector('[id="spCommandBar"]')["style"].display =
-              "none";
-          });
+                "none";
+              document.querySelector('[id="spCommandBar"]')["style"].display =
+                "none";
+            });
 
             // document.querySelector('[class*="headerRow"]')["style"].display =
             //   "none";
@@ -58,14 +58,13 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
             //   "none";
             const topElem = React.createElement(ReactHeader);
             ReactDOM.render(topElem, topPlaceholder.domElement);
-
           }
 
           // if (filteredItems[0].Footer) {
-            // let bottomPlaceholder: PlaceholderContent =
-            // this.context.placeholderProvider.tryCreateContent(
-            //   PlaceholderName.Bottom
-            // );
+          // let bottomPlaceholder: PlaceholderContent =
+          // this.context.placeholderProvider.tryCreateContent(
+          //   PlaceholderName.Bottom
+          // );
           //   const botElem = React.createElement(ReactFooter);
           //   ReactDOM.render(botElem, bottomPlaceholder.domElement);
           // }
