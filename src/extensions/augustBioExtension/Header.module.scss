@@ -98,3 +98,32 @@
     transform: translateX(-100%);
   }
 }
+
+// Animation
+._scrolling {
+  position: relative;
+  width: 100%;
+  background-color: #510c76;
+  height: 36px;
+  white-space: nowrap;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+}
+
+._scrolling div {
+  z-index: 1;
+  display: inline-block;
+  color: aliceblue;
+  width: 100%;
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
