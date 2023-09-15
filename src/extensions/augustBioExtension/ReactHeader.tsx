@@ -136,6 +136,7 @@ const ReactHeader = () => {
       .then((res: any) => {
         let _curArray: IRMData[] = [];
         let _curMessage: string = "";
+        let _curNews: string = "";
 
         if (res.length) {
           for (let i: number = 0; res.length > i; i++) {
@@ -158,7 +159,15 @@ const ReactHeader = () => {
                 isDelete: res[i].isDelete ? true : false,
               });
 
-              _curMessage += res[i].Description + " ";
+              _curNews += res[i].Description + " | ";
+            }
+
+            if (res.length === i + 1 && _curNews) {
+              let _strArr: string[] = [];
+
+              _strArr = _curNews.split(" | ");
+              _strArr.pop();
+              _curMessage = _strArr.join(" | ");
             }
           }
         }
@@ -227,7 +236,7 @@ const ReactHeader = () => {
                 text: _arrHeader[j].Title,
                 URL: _arrHeader[j].URL,
                 onClick: () => {
-                  window.open(_arrHeader[j].URL, "_blank");
+                  _arrHeader[j].URL && window.open(_arrHeader[j].URL, "_blank");
                 },
               });
             }
@@ -421,7 +430,7 @@ const ReactHeader = () => {
                     }
                     onClick={() => {
                       _handleChange(i);
-                      window.open(val.URL, "_blank");
+                      val.URL && window.open(val.URL, "_blank");
                     }}
                   />
                 );
