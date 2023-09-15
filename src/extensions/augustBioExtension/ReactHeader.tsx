@@ -244,6 +244,10 @@ const ReactHeader = () => {
             }
           }
         }
+        if (_arrHeader.length === i + 1) {
+          setHeaderDatas([..._arrHead]);
+          setIsLoader(false);
+        }
       }
     } else {
       setHeaderDatas([..._arrHead]);
