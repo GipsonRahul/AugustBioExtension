@@ -409,42 +409,49 @@ const ReactHeader = () => {
           </span>
 
           <div className={styles.ButtonSection}>
-            {HeaderDatas.length &&
-              HeaderDatas.map((val: IHead, i: number) => {
-                return val._item.items.length ? (
-                  <CommandBarButton
-                    text={val.Title}
-                    menuProps={val._item}
-                    className={
-                      val.isSelect ? styles.activeButton : styles.inactiveButton
-                    }
-                    onClick={() => {
-                      _handleChange(i);
-                    }}
-                  />
-                ) : (
-                  <CommandBarButton
-                    text={val.Title}
-                    className={
-                      val.isSelect ? styles.activeButton : styles.inactiveButton
-                    }
-                    onClick={() => {
-                      _handleChange(i);
-                      val.URL && window.open(val.URL, "_blank");
-                    }}
-                  />
-                );
-              })}
+            {HeaderDatas.length
+              ? HeaderDatas.map((val: IHead, i: number) => {
+                  return val._item.items.length ? (
+                    <CommandBarButton
+                      text={val.Title}
+                      menuProps={val._item}
+                      className={
+                        val.isSelect
+                          ? styles.activeButton
+                          : styles.inactiveButton
+                      }
+                      onClick={() => {
+                        _handleChange(i);
+                      }}
+                    />
+                  ) : (
+                    <CommandBarButton
+                      text={val.Title}
+                      className={
+                        val.isSelect
+                          ? styles.activeButton
+                          : styles.inactiveButton
+                      }
+                      onClick={() => {
+                        _handleChange(i);
+                        val.URL && window.open(val.URL, "_blank");
+                      }}
+                    />
+                  );
+                })
+              : ""}
 
-            <CommandBarButton
-              text="Edit"
-              onClick={() => {
-                window.open(
-                  _curPageSiteUrl + "/SitePages/HeaderData.aspx",
-                  "_blank"
-                );
-              }}
-            />
+            {(_isSuperdmin || _isRMAdmin) && (
+              <CommandBarButton
+                text="Edit"
+                onClick={() => {
+                  window.open(
+                    _curPageSiteUrl + "/SitePages/HeaderData.aspx",
+                    "_self"
+                  );
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
