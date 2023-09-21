@@ -141,12 +141,13 @@ const ReactHeader = () => {
         if (res.length) {
           for (let i: number = 0; res.length > i; i++) {
             if (
-              moment(res[i].StartDate).format("DDMMYYYY") <=
-                moment(new Date()).format("DDMMYYYY") &&
-              moment(res[i].EndDate).format("DDMMYYYY") >=
-                moment(new Date()).format("DDMMYYYY") &&
+              moment(res[i].StartDate).format("YYYYMMDD") <=
+              moment(new Date()).format("YYYYMMDD") &&
+              moment(res[i].EndDate).format("YYYYMMDD") >=
+              moment(new Date()).format("YYYYMMDD") &&
               res[i].isActive === true &&
-              res[i].isDelete === false
+              res[i].isDelete === false &&
+              res[i].isArchive === false
             ) {
               _curArray.push({
                 ID: res[i].ID,
@@ -403,7 +404,9 @@ const ReactHeader = () => {
         )}
 
         {/* Header section */}
-        <div className={styles.headerSection}>
+        <div className={styles.headerSection} style={{
+          display: 'none'
+        }}>
           <span className={styles.logoContainer}>
             <img width="200" height="70" src={_comLogo} />
           </span>
@@ -411,34 +414,34 @@ const ReactHeader = () => {
           <div className={styles.ButtonSection}>
             {HeaderDatas.length
               ? HeaderDatas.map((val: IHead, i: number) => {
-                  return val._item.items.length ? (
-                    <CommandBarButton
-                      text={val.Title}
-                      menuProps={val._item}
-                      className={
-                        val.isSelect
-                          ? styles.activeButton
-                          : styles.inactiveButton
-                      }
-                      onClick={() => {
-                        _handleChange(i);
-                      }}
-                    />
-                  ) : (
-                    <CommandBarButton
-                      text={val.Title}
-                      className={
-                        val.isSelect
-                          ? styles.activeButton
-                          : styles.inactiveButton
-                      }
-                      onClick={() => {
-                        _handleChange(i);
-                        val.URL && window.open(val.URL, "_blank");
-                      }}
-                    />
-                  );
-                })
+                return val._item.items.length ? (
+                  <CommandBarButton
+                    text={val.Title}
+                    menuProps={val._item}
+                    className={
+                      val.isSelect
+                        ? styles.activeButton
+                        : styles.inactiveButton
+                    }
+                    onClick={() => {
+                      _handleChange(i);
+                    }}
+                  />
+                ) : (
+                  <CommandBarButton
+                    text={val.Title}
+                    className={
+                      val.isSelect
+                        ? styles.activeButton
+                        : styles.inactiveButton
+                    }
+                    onClick={() => {
+                      _handleChange(i);
+                      val.URL && window.open(val.URL, "_blank");
+                    }}
+                  />
+                );
+              })
               : ""}
 
             {(_isSuperdmin || _isRMAdmin) && (

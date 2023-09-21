@@ -44,13 +44,13 @@ export default class AugustBioExtensionApplicationCustomizer extends BaseApplica
                 PlaceholderName.Top
               );
 
-            setTimeout(() => {
-              console.log("This will run after 1 second!");
-              document.querySelector('[class*="headerRow"]')["style"].display =
-                "none";
-              document.querySelector('[id="spCommandBar"]')["style"].display =
-                "none";
-            });
+            // setTimeout(() => {
+            //   console.log("This will run after 1 second!");
+            //   document.querySelector('[class*="headerRow"]')["style"].display =
+            //     "none";
+            //   document.querySelector('[id="spCommandBar"]')["style"].display =
+            //     "none";
+            // });
 
             // document.querySelector('[class*="headerRow"]')["style"].display =
             //   "none";
