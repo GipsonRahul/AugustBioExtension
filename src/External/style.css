@@ -21,3 +21,18 @@
   max-width: 155px !important;
   max-height: 60px !important;
 }
+
+[data-custom-class="nonAdmin"] .ms-HorizontalNavItem-Edit {
+  display: none !important;
+}
+/* .sp-App-bodyContainer .ms-HorizontalNavItem-Edit {
+  display: none !important;
+} */
+[data-custom-class="nonAdmin"] #spCommandBar {
+  display: none !important;
+}
+[data-custom-class="nonAdmin"]
+  [data-automationid="SiteHeader"]
+  [class^="actionsWrapper"] {
+  display: none !important;
+}

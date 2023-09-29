@@ -47,7 +47,7 @@ let _curUser: string = "";
 
 // dev
 let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
-let HQLId: string = "20164e3d-ce5e-44f8-a0f3-1a0852440918";
+let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
 let RMessageList: string = "UrgentBannerList";
 let HeaderDetail: string = "HeaderList";
 let _curPageSiteUrl: string =
@@ -106,7 +106,7 @@ const ReactHeader = () => {
 
   const _getADgroupDetails = async () => {
     await graph.groups
-      .getById(HQLId)
+      .getById(HeaderAdmin)
       .members.top(999)()
       .then((Data: any) => {
         _arrADUser = [];
@@ -125,6 +125,7 @@ const ReactHeader = () => {
       .catch((err: any) => {
         _getErrorFun(err);
       });
+      displayEditHandler()
   };
 
   const _getRMessageData = async () => {
@@ -274,6 +275,29 @@ const ReactHeader = () => {
 
     setHeaderDatas([...temp]);
   };
+
+  const displayEditHandler = ()=>{
+    const siteHeader = document.querySelector(
+      ".sp-pageLayout-horizontalNav"
+    );
+    const siteContent = document.querySelector(".sp-App-bodyContainer");
+
+    if (siteHeader) {
+      if (!(_isSuperdmin || _isRMAdmin)) {
+        siteHeader.setAttribute("data-custom-class", "nonAdmin");
+      } else {
+        siteHeader.removeAttribute("data-custom-class");
+      }
+    }
+
+    if (siteContent) {
+      if (!(_isSuperdmin || _isRMAdmin)) {
+        siteContent.setAttribute("data-custom-class", "nonAdmin");
+      } else {
+        siteContent.removeAttribute("data-custom-class");
+      }
+    }
+  }
 
   useEffect(() => {
     _getDefaultFun();
