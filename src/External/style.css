@@ -1,5 +1,6 @@
 #sp-appBar,
-.commandBarWrapper{
+.commandBarWrapper,
+[class^="sideActionsWrapper"]{
   display: none !important;
 }
 [class^="actionsWrapper"]{
@@ -33,6 +34,7 @@
 }
 [data-custom-class="nonAdmin"]
   [data-automationid="SiteHeader"]
-  [class^="actionsWrapper"] {
+  [class^="actionsWrapper"] ,
+  [data-custom-class="nonAdmin"] .ms-Nav-compositeLink[name="Edit"]{
   display: none !important;
 }
