@@ -48,7 +48,7 @@ let _curUser: string = "";
 // dev
 let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
 let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
-let RMessageList: string = "UrgentBannerList";
+let RMessageList: string = "Intranet_UrgentBannerList";
 let HeaderDetail: string = "HeaderList";
 let _curPageSiteUrl: string =
   "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
@@ -125,7 +125,7 @@ const ReactHeader = () => {
       .catch((err: any) => {
         _getErrorFun(err);
       });
-      displayEditHandler()
+    displayEditHandler();
   };
 
   const _getRMessageData = async () => {
@@ -143,9 +143,9 @@ const ReactHeader = () => {
           for (let i: number = 0; res.length > i; i++) {
             if (
               moment(res[i].StartDate).format("YYYYMMDD") <=
-              moment(new Date()).format("YYYYMMDD") &&
+                moment(new Date()).format("YYYYMMDD") &&
               moment(res[i].EndDate).format("YYYYMMDD") >=
-              moment(new Date()).format("YYYYMMDD") &&
+                moment(new Date()).format("YYYYMMDD") &&
               res[i].isActive === true &&
               res[i].isDelete === false &&
               res[i].isArchive === false
@@ -175,7 +175,8 @@ const ReactHeader = () => {
         }
 
         setRMessageData(_curMessage);
-        _getHeaderDetails();
+        setIsLoader(false);
+        // _getHeaderDetails();
       })
       .catch((err: any) => {
         _getErrorFun(err);
@@ -276,10 +277,8 @@ const ReactHeader = () => {
     setHeaderDatas([...temp]);
   };
 
-  const displayEditHandler = ()=>{
-    const siteHeader = document.querySelector(
-      ".sp-pageLayout-horizontalNav"
-    );
+  const displayEditHandler = () => {
+    const siteHeader = document.querySelector(".sp-pageLayout-horizontalNav");
     const siteContent = document.querySelector(".sp-App-bodyContainer");
 
     if (siteHeader) {
@@ -297,7 +296,7 @@ const ReactHeader = () => {
         siteContent.removeAttribute("data-custom-class");
       }
     }
-  }
+  };
 
   useEffect(() => {
     _getDefaultFun();
@@ -428,9 +427,12 @@ const ReactHeader = () => {
         )}
 
         {/* Header section */}
-        <div className={styles.headerSection} style={{
-          display: 'none'
-        }}>
+        <div
+          className={styles.headerSection}
+          style={{
+            display: "none",
+          }}
+        >
           <span className={styles.logoContainer}>
             <img width="200" height="70" src={_comLogo} />
           </span>
@@ -438,34 +440,34 @@ const ReactHeader = () => {
           <div className={styles.ButtonSection}>
             {HeaderDatas.length
               ? HeaderDatas.map((val: IHead, i: number) => {
-                return val._item.items.length ? (
-                  <CommandBarButton
-                    text={val.Title}
-                    menuProps={val._item}
-                    className={
-                      val.isSelect
-                        ? styles.activeButton
-                        : styles.inactiveButton
-                    }
-                    onClick={() => {
-                      _handleChange(i);
-                    }}
-                  />
-                ) : (
-                  <CommandBarButton
-                    text={val.Title}
-                    className={
-                      val.isSelect
-                        ? styles.activeButton
-                        : styles.inactiveButton
-                    }
-                    onClick={() => {
-                      _handleChange(i);
-                      val.URL && window.open(val.URL, "_blank");
-                    }}
-                  />
-                );
-              })
+                  return val._item.items.length ? (
+                    <CommandBarButton
+                      text={val.Title}
+                      menuProps={val._item}
+                      className={
+                        val.isSelect
+                          ? styles.activeButton
+                          : styles.inactiveButton
+                      }
+                      onClick={() => {
+                        _handleChange(i);
+                      }}
+                    />
+                  ) : (
+                    <CommandBarButton
+                      text={val.Title}
+                      className={
+                        val.isSelect
+                          ? styles.activeButton
+                          : styles.inactiveButton
+                      }
+                      onClick={() => {
+                        _handleChange(i);
+                        val.URL && window.open(val.URL, "_blank");
+                      }}
+                    />
+                  );
+                })
               : ""}
 
             {(_isSuperdmin || _isRMAdmin) && (
