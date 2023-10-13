@@ -46,12 +46,19 @@ let _isRMAdmin: boolean = false;
 let _curUser: string = "";
 
 // dev
-let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
-let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
+// let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
+// let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
+// let RMessageList: string = "Intranet_UrgentBannerList";
+// let HeaderDetail: string = "HeaderList";
+// let _curPageSiteUrl: string =
+//   "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
+
+// Prod
+let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
+let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
 let RMessageList: string = "Intranet_UrgentBannerList";
 let HeaderDetail: string = "HeaderList";
-let _curPageSiteUrl: string =
-  "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
+let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
 
 const ReactHeader = () => {
   // Local variable creations

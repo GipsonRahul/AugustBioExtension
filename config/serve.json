@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://chandrudemo.sharepoint.com/sites/AugustBioServices/SitePages/Intranet.aspx",
+      "pageUrl": "https://augustbio.sharepoint.com/sites/CIP-DEV/SitePages/Intranet.aspx",
       "customActions": {
         "ca40e2a9-c46e-48d8-baa6-adebbdbfcceb": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -15,7 +15,7 @@
       }
     },
     "augustBioExtension": {
-      "pageUrl": "https://chandrudemo.sharepoint.com/sites/AugustBioServices/SitePages/Intranet.aspx",
+      "pageUrl": "https://augustbio.sharepoint.com/sites/CIP-DEV/SitePages/Intranet.aspx",
       "customActions": {
         "ca40e2a9-c46e-48d8-baa6-adebbdbfcceb": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -27,3 +27,7 @@
     }
   }
 }
+
+// Dev => https://chandrudemo.sharepoint.com/sites/AugustBioServices/SitePages/Intranet.aspx
+
+// Prod => https://augustbio.sharepoint.com/sites/CIP-DEV/SitePages/Intranet.aspx
