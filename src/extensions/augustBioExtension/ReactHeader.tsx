@@ -46,19 +46,19 @@ let _isRMAdmin: boolean = false;
 let _curUser: string = "";
 
 // dev
-// let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
-// let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
-// let RMessageList: string = "Intranet_UrgentBannerList";
-// let HeaderDetail: string = "HeaderList";
-// let _curPageSiteUrl: string =
-//   "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
-
-// Prod
-let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
-let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
+let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
+let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
 let RMessageList: string = "Intranet_UrgentBannerList";
 let HeaderDetail: string = "HeaderList";
-let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
+let _curPageSiteUrl: string =
+  "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
+
+// Prod
+// let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
+// let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
+// let RMessageList: string = "Intranet_UrgentBannerList";
+// let HeaderDetail: string = "HeaderList";
+// let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
 
 const ReactHeader = () => {
   // Local variable creations
@@ -176,7 +176,7 @@ const ReactHeader = () => {
 
               _strArr = _curNews.split(" | ");
               _strArr.pop();
-              _curMessage = _strArr.join(" | ");
+              _curMessage = _strArr.join(`      |      `);
             }
           }
         }
@@ -340,37 +340,37 @@ const ReactHeader = () => {
 
             <div>{RMessageData}</div>
 
-            {(_isSuperdmin || _isRMAdmin) && (
-              <Label
+            <Label
+              style={{
+                backgroundColor: "#510c76",
+                zIndex: 2,
+                position: "absolute",
+                top: 0,
+                right: 0,
+                bottom: 0,
+                height: 36,
+                width: 36,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Icon
+                iconName={
+                  _isSuperdmin || _isRMAdmin ? "Edit" : "ChromeBackMirrored"
+                }
                 style={{
-                  backgroundColor: "#510c76",
-                  zIndex: 2,
-                  position: "absolute",
-                  top: 0,
-                  right: 0,
-                  bottom: 0,
-                  height: 36,
-                  width: 36,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  color: "#ffff",
+                  cursor: "pointer",
                 }}
-              >
-                <Icon
-                  iconName="Edit"
-                  style={{
-                    color: "#ffff",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    window.open(
-                      _curPageSiteUrl + "/SitePages/RotatingMSG.aspx",
-                      "_self"
-                    );
-                  }}
-                />
-              </Label>
-            )}
+                onClick={() => {
+                  window.open(
+                    _curPageSiteUrl + "/SitePages/RotatingMSG.aspx",
+                    "_self"
+                  );
+                }}
+              />
+            </Label>
           </div>
         ) : _isSuperdmin || _isRMAdmin ? (
           <div className={styles._scrolling}>
