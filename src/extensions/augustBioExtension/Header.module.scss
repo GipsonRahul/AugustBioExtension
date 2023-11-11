@@ -119,11 +119,32 @@
   animation: marquee 40s linear infinite;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+pre {
+  overflow: visible !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  margin: 0 !important;
 }
+
+// ._scrolling pre {
+//   display: inline;
+//   margin-top: 0;
+//   // overflow: hidden;
+//   overflow: visible;
+//   color: #fff;
+//   margin-bottom: 0px;
+//   // width: 100%;
+//   font-family: monospace;
+//   font-size: 16px;
+//   z-index: 1;
+//   animation: marquee 40s linear infinite;
+// }
+
+// @keyframes marquee {
+//   0% {
+//     transform: translateX(100%);
+//   }
+//   100% {
+//     transform: translateX(-100%);
+//   }
+// }
