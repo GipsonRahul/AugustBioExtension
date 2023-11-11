@@ -46,19 +46,26 @@ let _isRMAdmin: boolean = false;
 let _curUser: string = "";
 
 // dev
-let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
-let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
-let RMessageList: string = "Intranet_UrgentBannerList";
-let HeaderDetail: string = "HeaderList";
-let _curPageSiteUrl: string =
-  "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
+// let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
+// let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
+// let RMessageList: string = "Intranet_UrgentBannerList";
+// let HeaderDetail: string = "HeaderList";
+// let _curPageSiteUrl: string =
+//   "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
 
-// Prod
+// Prod ( Dev )
 // let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
 // let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
 // let RMessageList: string = "Intranet_UrgentBannerList";
 // let HeaderDetail: string = "HeaderList";
 // let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
+
+// Prod
+let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
+let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
+let RMessageList: string = "Intranet_UrgentBannerList";
+let HeaderDetail: string = "HeaderList";
+let _curPageSiteUrl: string = "https://augustbio.sharepoint.com";
 
 const ReactHeader = () => {
   // Local variable creations
@@ -183,12 +190,32 @@ const ReactHeader = () => {
 
         setRMessageData(_curMessage);
         setIsLoader(false);
+        // findtTimeFunction();
         // _getHeaderDetails();
       })
       .catch((err: any) => {
         _getErrorFun(err);
       });
   };
+
+  // const findtTimeFunction = () => {
+  //   let defaultDelay = 50; // Is the CSS defined delay.
+  //   let defaultWidth = 602; // Is the width for your tested 100 char string.
+  //   let getPreTag = document.getElementById("rotatingContent");
+  //   let contentLength = getPreTag.textContent.length;
+  //   let convertWidthbasedSec = null;
+
+  //   if (contentLength >= defaultWidth) {
+  //     convertWidthbasedSec = defaultDelay * (contentLength / defaultWidth);
+  //   } else {
+  //     convertWidthbasedSec = 42;
+  //   }
+
+  //   let _style = `${styles.marquee} ${Math.floor(
+  //     convertWidthbasedSec
+  //   )}s linear infinite`;
+  //   getPreTag.style.animation = _style;
+  // };
 
   const _getHeaderDetails = async () => {
     await sp.web.lists
@@ -338,7 +365,11 @@ const ReactHeader = () => {
               />
             </Label>
 
-            <div>{RMessageData}</div>
+            {/* <pre id="rotatingContent">{RMessageData}</pre> */}
+
+            <marquee>
+              <pre>{RMessageData}</pre>
+            </marquee>
 
             <Label
               style={{
@@ -397,7 +428,11 @@ const ReactHeader = () => {
               />
             </Label>
 
-            <div>No news available. Please add.</div>
+            {/* <div>No news available. Please add.</div> */}
+
+            <marquee>
+              <pre>No news available. Please add.</pre>
+            </marquee>
 
             <Label
               style={{
