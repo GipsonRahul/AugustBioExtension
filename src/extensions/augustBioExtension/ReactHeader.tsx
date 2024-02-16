@@ -46,26 +46,32 @@ let _isRMAdmin: boolean = false;
 let _curUser: string = "";
 
 // dev
+// let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d"; // Not use this group
+
 // let AugustBioSuperAdminId: string = "50f13710-3dcf-4be6-b2fe-fbacfc6729f6";
-// let HeaderAdmin: string = "5025914a-906a-4681-a80c-451298b1d38d";
+// let UrgentBannerAdmin: string = "a462a00b-09a2-4bda-b3ea-15f6e4e81e8b";
 // let RMessageList: string = "Intranet_UrgentBannerList";
 // let HeaderDetail: string = "HeaderList";
 // let _curPageSiteUrl: string =
 //   "https://chandrudemo.sharepoint.com/sites/AugustBioServices";
 
 // Prod ( Dev )
-// let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
-// let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
-// let RMessageList: string = "Intranet_UrgentBannerList";
-// let HeaderDetail: string = "HeaderList";
-// let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
+// let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da"; // Not use this group
 
-// Prod
 let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
-let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da";
+let UrgentBannerAdmin: string = "e3f9c2dc-9a34-44c6-a57c-30a93c1bd730";
 let RMessageList: string = "Intranet_UrgentBannerList";
 let HeaderDetail: string = "HeaderList";
-let _curPageSiteUrl: string = "https://augustbio.sharepoint.com";
+let _curPageSiteUrl: string = "https://augustbio.sharepoint.com/sites/CIP-DEV";
+
+// Prod
+// let HeaderAdmin: string = "7d099f7c-5a81-4d41-9719-14f4535131da"; // Not use this group
+
+// let AugustBioSuperAdminId: string = "7484a5f9-7cae-4cfa-9542-eba4875011b0";
+// let UrgentBannerAdmin: string = "e3f9c2dc-9a34-44c6-a57c-30a93c1bd730";
+// let RMessageList: string = "Intranet_UrgentBannerList";
+// let HeaderDetail: string = "HeaderList";
+// let _curPageSiteUrl: string = "https://augustbio.sharepoint.com";
 
 const ReactHeader = () => {
   // Local variable creations
@@ -120,7 +126,7 @@ const ReactHeader = () => {
 
   const _getADgroupDetails = async () => {
     await graph.groups
-      .getById(HeaderAdmin)
+      .getById(UrgentBannerAdmin)
       .members.top(999)()
       .then((Data: any) => {
         _arrADUser = [];
@@ -350,8 +356,8 @@ const ReactHeader = () => {
                 top: 0,
                 left: 0,
                 bottom: 0,
-                height: 36,
-                width: 36,
+                height: 48,
+                width: 48,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -361,6 +367,7 @@ const ReactHeader = () => {
                 iconName="Warning"
                 style={{
                   color: "#ffff",
+                  fontSize: 18,
                 }}
               />
             </Label>
@@ -379,8 +386,8 @@ const ReactHeader = () => {
                 top: 0,
                 right: 0,
                 bottom: 0,
-                height: 36,
-                width: 36,
+                height: 48,
+                width: 48,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -393,6 +400,7 @@ const ReactHeader = () => {
                 style={{
                   color: "#ffff",
                   cursor: "pointer",
+                  fontSize: 18,
                 }}
                 onClick={() => {
                   window.open(
@@ -413,8 +421,8 @@ const ReactHeader = () => {
                 top: 0,
                 left: 0,
                 bottom: 0,
-                height: 36,
-                width: 36,
+                height: 48,
+                width: 48,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -424,6 +432,7 @@ const ReactHeader = () => {
                 iconName="Warning"
                 style={{
                   color: "#ffff",
+                  fontSize: 18,
                 }}
               />
             </Label>
@@ -442,8 +451,8 @@ const ReactHeader = () => {
                 top: 0,
                 right: 0,
                 bottom: 0,
-                height: 36,
-                width: 36,
+                height: 48,
+                width: 48,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -454,6 +463,7 @@ const ReactHeader = () => {
                 style={{
                   color: "#ffff",
                   cursor: "pointer",
+                  fontSize: 18,
                 }}
                 onClick={() => {
                   window.open(
