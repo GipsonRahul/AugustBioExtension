@@ -148,3 +148,15 @@ pre {
 //     transform: translateX(-100%);
 //   }
 // }
+@media (max-width: 620px) {
+  pre {
+    font-size: 14px !important;
+  }
+  ._scrolling {
+    height: 30px !important;
+  }
+  ._scrolling label {
+    height: 30px !important;
+    width: 40px !important;
+  }
+}
